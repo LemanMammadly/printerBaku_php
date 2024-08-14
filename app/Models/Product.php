@@ -4,17 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
-class Category extends Model
+class Product extends Model
 {
     use HasFactory;
-    use HasTranslations;
-
-    public $translatable = ['name','slug'];
     protected $fillable = [
         'name',
-        'image',
-        'slug'
+        'description',
+        'view_count',
+        'price',
+        'discount_percent',
+        'stock',
+        'current_stock',
+        'slug',
+        'category_id',
     ];
 }
