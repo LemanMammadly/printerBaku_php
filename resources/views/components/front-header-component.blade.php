@@ -1,4 +1,3 @@
-
 <header>
     <div class="header-area">
         <div class="header-top d-none d-sm-block">
@@ -8,10 +7,14 @@
                         <div class="d-flex justify-content-between flex-wrap align-items-center">
                             <div class="header-info-left">
                                 <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Careers</a></li>
+                                    {{-- @foreach ($categories as $cat)
+                                        <li><a href="#">{{ $cat->name }}</a></li>
+                                    @endforeach
+                                     --}}
+
+                                    @foreach ($navItems as $nav)
+                                        <li><a href="#">{{ $nav->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="header-info-right d-flex">
@@ -37,7 +40,8 @@
                 <div class="menu-wrapper">
 
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('front/assets/img/logo/logo.png')}}" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('front/assets/img/logo/logo.png') }}"
+                                alt=""></a>
                     </div>
 
                     <div class="main-menu d-none d-lg-block">
@@ -97,8 +101,9 @@
             </div>
         </div>
         <div class="header-bottom text-center">
-            <p>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <a href="#"
-                    class="browse-btn">Shop Now</a></p>
+            <p>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <a href="#" class="browse-btn">Shop
+                    Now</a></p>
         </div>
     </div>
 </header>
+

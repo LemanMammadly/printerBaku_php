@@ -4,7 +4,7 @@
 <head>
     @include('front.layouts.includes.head')
     <title>
-        @stack('title', 'Home')
+        @yield('title', 'Home')
     </title>
 </head>
 

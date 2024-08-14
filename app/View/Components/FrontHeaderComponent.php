@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
+use App\Models\NavItem;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class front-footer-component extends Component
+class FrontHeaderComponent extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +23,8 @@ class front-footer-component extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.front-footer-component');
+        $navItems = NavItem::all();
+        return view('components.front-header-component',compact('navItems'));
+        // return "test";
     }
 }
