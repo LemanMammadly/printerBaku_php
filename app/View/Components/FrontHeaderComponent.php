@@ -24,7 +24,7 @@ class FrontHeaderComponent extends Component
     public function render(): View|Closure|string
     {
         $navItems = NavItem::all();
-        return view('components.front-header-component',compact('navItems'));
-        // return "test";
+        $categories = Category::all();
+        return view('components.front-header-component',compact('navItems','categories'));
     }
 }
