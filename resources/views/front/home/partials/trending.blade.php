@@ -31,7 +31,7 @@
                     id="nav-{{ $category->id }}" role="tabpanel" aria-labelledby="nav-{{ $category->id }}-tab">
                     <div class="latest-items-active">
                         @foreach ($category->products as $product)
-                            <div class="properties pb-30">
+                            <div class="properties pb-30 d-flex">
                                 <div class="properties-card">
                                     <div class="properties-img">
                                         <a href="">
@@ -65,17 +65,6 @@
 </div>
 @push('js')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
-            tabs.forEach(tab => {
-                tab.addEventListener('shown.bs.tab', function() {
-                    const tabContent = document.querySelector(this.getAttribute('href'));
-                    const images = tabContent.querySelectorAll('img');
-                    images.forEach(img => {
-                        img.src = img.src;
-                    });
-                });
-            });
-        });
+
     </script>
 @endpush

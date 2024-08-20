@@ -9,9 +9,13 @@
 </head>
 
 <body>
-    <x-front-header-component/>
+    @unless (Route::is('login') || Route::is('register'))
+        <x-front-header-component />
+    @endunless
     @yield('content')
-    <x-front-footer-component/>
+    @unless (Route::is('login') || Route::is('register'))
+    <x-front-footer-component />
+    @endunless
     @include('front.layouts.includes.foot')
     @push('js')
         <script async="" src="../../gtag/js?id=UA-23581568-13"></script>

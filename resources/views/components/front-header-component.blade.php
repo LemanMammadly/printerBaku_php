@@ -5,20 +5,20 @@
                 <div class="menu-wrapper">
 
                     <div class="logo">
-                        <a href="index.html"><img src="{{ asset('front/assets/img/logo/logo.png') }}"
-                                alt=""></a>
+                        <a href="index.html"><img src="{{ asset('front/assets/img/logo/logo.png') }}" alt=""></a>
                     </div>
 
                     <div class="main-menu d-none d-lg-block">
                         <nav>
                             <ul id="navigation">
                                 @foreach ($navItems as $item)
-                                <li><a href="#">{{$item->name}}</a></li>
+                                    <li><a href="#">{{ $item->name }}</a></li>
                                 @endforeach
-                                <li><a href="#">{{(LaravelLocalization::getCurrentLocaleName()) == 'English' ? 'Products' : 'Məhsullar'}} <i class="fas fa-angle-down"></i></a>
+                                <li><a href="#">{{ LaravelLocalization::getCurrentLocaleName() == 'English' ? 'Products' : 'Məhsullar' }}
+                                        <i class="fas fa-angle-down"></i></a>
                                     <ul class="submenu">
                                         @foreach ($categories as $cat)
-                                        <li><a href="#">{{$cat->name}}</a></li>
+                                            <li><a href="#">{{ $cat->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="header-right">
-                        <ul>
+                        <ul class="d-flex align-items-center">
                             <li>
                                 <div class="nav-search search-switch hearer_icon">
                                     <a id="search_1" href="javascript:void(0)">
@@ -35,9 +35,18 @@
                                     </a>
                                 </div>
                             </li>
-                            <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
                             <li class="cart"><a href="cart.html"><span class="flaticon-shopping-cart"></span></a>
                             </li>
+                            <li>
+                                @if ($user)
+                                    <span style="font-size: 15px">{{ $user }}</span>
+                                    <a style="color: #333" href="{{route('logout')}}"><i
+                                            class="fa-solid fa-right-from-bracket"></i></a>
+                                @else
+                                    <a href="{{ route('login') }}"><span class="flaticon-user"></span></a>
+                                @endif
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -58,13 +67,14 @@
         <div class="header-bottom text-center">
             <p>
                 @if (LaravelLocalization::getCurrentLocaleName() == 'English')
-                    Sale Up To 50% Biggest Discounts. Hurry! Limited Period Offer <a href="#" class="browse-btn">Shop Now</a>
+                    Sale Up To 50% Biggest Discounts. Hurry! Limited Period Offer <a href="#"
+                        class="browse-btn">Shop Now</a>
                 @else
-                    50%-ə qədər Ən Böyük Endirimlər. Tələsin! Məhdud Müddət Təklifi <a href="#" class="browse-btn">İndi alış-veriş edin</a>
+                    50%-ə qədər Ən Böyük Endirimlər. Tələsin! Məhdud Müddət Təklifi <a href="#"
+                        class="browse-btn">İndi alış-veriş edin</a>
                 @endif
             </p>
-            
+
         </div>
     </div>
 </header>
-
